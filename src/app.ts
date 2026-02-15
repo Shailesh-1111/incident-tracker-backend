@@ -6,9 +6,10 @@ import errorHandler from './middlewares/errorHandler';
 const app = express();
 
 app.use(cors({
-    origin: '*', // In production, replace '*' with your specific Netlify frontend URL
+    origin: ['https://incident-tracker-frontend.netlify.app', 'http://localhost:5173'],
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 }));
 app.use(express.json());
 
