@@ -5,7 +5,11 @@ import errorHandler from './middlewares/errorHandler';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: '*', // In production, replace '*' with your specific Netlify frontend URL
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // Routes
