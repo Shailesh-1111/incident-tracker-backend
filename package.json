@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "prisma generate && tsc",
-    "prestart": "prisma migrate deploy",
+    "build": "npx prisma generate && tsc",
+    "prestart": "npx prisma migrate deploy",
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts"
   },
