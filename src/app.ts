@@ -5,8 +5,14 @@ import errorHandler from './middlewares/errorHandler';
 
 const app = express();
 
+const allowedOrigins = [
+    process.env.FRONTEND_URL,
+    'https://incident-tracker-frontend.netlify.app',
+    'http://localhost:5173'
+].filter(Boolean) as string[];
+
 app.use(cors({
-    origin: ['https://incident-tracker-frontend.netlify.app', 'http://localhost:5173'],
+    origin: allowedOrigins,
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
